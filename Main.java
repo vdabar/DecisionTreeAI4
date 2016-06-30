@@ -20,27 +20,26 @@ public class Main {
         DecisionTree tree3 = new DecisionTree();
         Scanner scanner = new Scanner(System.in);
         String input,output;
-        //System.out.println("Enter input file:");
-        //input=(scanner.nextLine());
+        System.out.println("Enter learning set file destination:");
+        input=(scanner.nextLine());
         System.out.println("Enter test file:");
-        //output=(scanner.nextLine());
-        tree1 = id3.runID3Algorithm("C:\\Users\\Vytautas\\IdeaProjects\\AI4\\src\\com\\company\\iris.csv");
+        output=(scanner.nextLine());
+        tree1 = id3.runID3Algorithm(input);
         DecisionTree tree = new DecisionTree();
 
-      //  BufferedReader reader = new BufferedReader(new FileReader(output));
-       // String line;
-       // List<String[]> examples = new ArrayList<String[]>();
-       // while (((line = reader.readLine()) != null)) {
-        //    String[] lineSplit = line.split(",");
-        //    examples.add(lineSplit);
-        //}
-        //reader.close();
-        //for (String[] s: examples){
-        //    for (String a:s){System.out.print(a);}
-        //    System.out.println(" "+tree1.predictTargetAttributeValue(s));
-        //}
+        BufferedReader reader = new BufferedReader(new FileReader(output));
+        String line;
+        List<String[]> examples = new ArrayList<String[]>();
+        while (((line = reader.readLine()) != null)) {
+            String[] lineSplit = line.split(",");
+            examples.add(lineSplit);
+        }
+        reader.close();
+        for (String[] s: examples){
+            for (String a:s){System.out.print(a);}
+            System.out.println(" "+tree1.predictTargetAttributeValue(s));
+        }
 
-        tree1.print("C:\\Users\\Vytautas\\IdeaProjects\\AI4\\src\\com\\company\\resullt.txt");
 
     }
 
