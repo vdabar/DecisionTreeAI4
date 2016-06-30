@@ -16,28 +16,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ID3Algorithm id3 = new ID3Algorithm();
         DecisionTree tree1 = new DecisionTree();
+        DecisionTree tree2 = new DecisionTree();
+        DecisionTree tree3 = new DecisionTree();
         Scanner scanner = new Scanner(System.in);
         String input,output;
-        System.out.println("Enter input file:");
-        input=(scanner.nextLine());
-        System.out.println("Enter utput file:");
-        output=(scanner.nextLine());
-        tree1 = id3.runID3Algorithm(input);
+        //System.out.println("Enter input file:");
+        //input=(scanner.nextLine());
+        System.out.println("Enter test file:");
+        //output=(scanner.nextLine());
+        tree1 = id3.runID3Algorithm("C:\\Users\\Vytautas\\IdeaProjects\\AI4\\src\\com\\company\\iris.csv");
+        DecisionTree tree = new DecisionTree();
 
-        BufferedReader reader = new BufferedReader(new FileReader(output));
-        String line;
-        List<String[]> examples = new ArrayList<String[]>();
-        while (((line = reader.readLine()) != null)) {
-            String[] lineSplit = line.split(",");
-            examples.add(lineSplit);
-        }
-        reader.close();
-        for (String[] s: examples){
-            for (String a:s){System.out.print(a);}
-            System.out.println(" "+tree1.predictTargetAttributeValue(s));
-        }
+      //  BufferedReader reader = new BufferedReader(new FileReader(output));
+       // String line;
+       // List<String[]> examples = new ArrayList<String[]>();
+       // while (((line = reader.readLine()) != null)) {
+        //    String[] lineSplit = line.split(",");
+        //    examples.add(lineSplit);
+        //}
+        //reader.close();
+        //for (String[] s: examples){
+        //    for (String a:s){System.out.print(a);}
+        //    System.out.println(" "+tree1.predictTargetAttributeValue(s));
+        //}
 
-        tree1.print(output);
+        tree1.print("C:\\Users\\Vytautas\\IdeaProjects\\AI4\\src\\com\\company\\resullt.txt");
 
     }
 
